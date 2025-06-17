@@ -1,0 +1,258 @@
+:root {
+    --primary: #0d6efd;
+    --primary-dark: #0b5ed7;
+    --background: #f8f9fa;
+    --text: #212529;
+    --card: white;
+    --transition: all 0.3s ease;
+}
+
+[data-theme="dark"] {
+    --primary: #0d6efd;
+    --primary-dark: #0b5ed7;
+    --background: #121212;
+    --text: #e0e0e0;
+    --card: #1e1e1e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.1)"/></svg>');
+    opacity: 0.1;
+}
+
+header h1 { 
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    height: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+header p { 
+    margin-top: 10px;
+    font-size: 1.3em;
+    opacity: 0.9;
+}
+
+header .contact {
+    margin-top: 30px;
+}
+
+header .contact a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    background: rgba(255,255,255,0.1);
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: var(--transition);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+header .contact a:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.controls button, .controls select {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: var(--transition);
+}
+
+.controls button:hover, .controls select:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.controls select {
+    color: #fff;
+    border: 1px solid #ccc;
+}
+
+[data-theme="dark"] .controls select {
+    color: #fff;
+    border: 1px solid #444;
+}
+
+main section {
+    background-color: var(--card);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+main section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+section h2 {
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: var(--primary);
+    font-size: 1.8em;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills li {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 8px 16px;
+    border-radius: 25px;
+    list-style: none;
+    transition: var(--transition);
+}
+
+.skills li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+footer {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#typed-text {
+    display: inline-block;
+    min-width: 400px;
+    height: 1.2em;
+    line-height: 1.2em;
+    position: relative;
+}
+
+.typed-complete {
+    transform: scale(1.02);
+}
+
+.typed-fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.typed-cursor {
+    font-size: 1.2em;
+    opacity: 1;
+    animation: blink 0.7s infinite;
+    color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    top: -2px;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        padding: 40px 0;
+    }
+
+    header h1 {
+        font-size: 2.2em;
+        height: 1.4em;
+    }
+
+    header .contact {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header .contact a {
+        margin: 0;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #typed-text {
+        min-width: 280px;
+        height: 1.4em;
+        line-height: 1.4em;
+    }
+}
